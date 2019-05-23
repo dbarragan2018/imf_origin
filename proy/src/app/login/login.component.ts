@@ -7,9 +7,21 @@ import {AuthService} from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private Auth: AuthService) { }
+  constructor(private AuthService: AuthService) { }
+  informacion = null;
+credenciales ={
+  username: null,
+  password: null
+}
 
+imflogin() {
+  this.AuthService.imflogin().subscribe(resultado => this.informacion = resultado);
+  console.log(this.informacion.username);
+  console.log("hola mundo");
+}
+  
   ngOnInit() {
+
   }
 
   ingresar(event){
@@ -19,13 +31,14 @@ export class LoginComponent implements OnInit {
     const username = target.querySelector('#username').value;
     const password = target.querySelector('#password').value;
 
-    this.Auth.getUserDetails(username, password);
+
 
 
     console.log(username, password);
-
+    
     console.log("Si entro al login");
     console.log(event);
+    this.imflogin();    
   }
 
 }

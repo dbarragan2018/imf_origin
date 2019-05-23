@@ -1,4 +1,7 @@
 <?php
+
+header('Access-Control-Allow-Origin: *'); 
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 session_start();
 $_POST = json_decode(file_get_contents('php://button'), true);
 if(isset($_POST) && !empty($_POST)) {
