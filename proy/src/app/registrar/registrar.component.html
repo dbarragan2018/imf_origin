@@ -1,7 +1,8 @@
 <form class="register-form">
-  <input type="text" placeholder="name"/>
-  <input type="password" placeholder="password"/>
+  <input type="text" placeholder="name" #username='ngModel' [(ngModel)]="credenciales.username" 
+  name="name2"/>
+  <input type="password" placeholder="password" #password='ngModel' [(ngModel)]="credenciales.password"/>
   <input type="text" placeholder="email address"/>
-  <button>create</button>
+  <button (click)="imfregistrar()">create</button>
   <p class="message">Already registered? <a href="#">Sign In</a></p>
 </form>
